@@ -1,0 +1,25 @@
+{
+  "name": "react-study-projects",                           // 任意の名前
+  "dockerComposeFile": "../docker/docker-compose.yml",      // DockerComposeFileを指定
+  "service": "react-todo-app, react-hooks-todo-app",        // DockerComposeFileにあるservice名を指定
+  "workspaceFolder": "/app",                                // コンテナに入ったときの作業ディレクトリ
+  // 以下は、git差分を確認する為に記述したが、
+  // 「.git」フォルダなどをコンテナ内に適切に反映する必要がある為、止めた。
+  // "postCreateCommand": "apt update && apt install -y git", // コンテナ起動後に、実行
+  "customizations": {
+    "vscode": {
+      // 以下にて、VSCodeの拡張機能のIDを指定
+      "extensions": [
+        // 以下は、必須の拡張機能
+        "styled-components.vscode-styled-components",
+        // 以下は、任意の拡張機能
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "mikestead.dotenv",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

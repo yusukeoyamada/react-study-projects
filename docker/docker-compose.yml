@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  react-todo-app:
+    build: ../react-todo-app
+    image: react-todo-app
+    container_name: react-todo-app
+    working_dir: /app
+    volumes:
+      - ../react-todo-app:/app # 「react-todo-app」のプロジェクト
+      - node_modules_in_react-todo-app:/app/node_modules # ホストと同期することで、コンテナ内の「node_modules」を消失させないように
+    ports:
+      - "3001:3001"
+  react-hooks-todo-app:
+    build: ../react-hooks-todo-app
+    image: react-hooks-todo-app
+    container_name: react-hooks-todo-app
+    working_dir: /app
+    volumes:
+      - ../react-hooks-todo-app:/app # 「react-hooks-todo-app」のプロジェクト
+      - node_modules_in_react-hooks-todo-app:/app/node_modules # ホストと同期することで、コンテナ内の「node_modules」を消失させないように
+    ports:
+      - "3002:3002"
+
+volumes:
+  # ホストと同期することで、コンテナ内の「node_modules」を消失させないように
+  # ホストには、空の「node_modules」が生成されるのみで、中身は、volumesに保存されている。
+  node_modules_in_react-todo-app:
+  node_modules_in_react-hooks-todo-app:
