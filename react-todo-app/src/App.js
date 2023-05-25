@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Todo from "./components/Todo"
+
+const App = () => {
+  // ※ 注意
+  // JSXが複数行の時は、()で括る。
+  // 括らないと、勝手に1行ごとに「;」がついてしまい、1行だけ認識されてしまう。
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>Reminder</h2>
+      <Todo />
+    </>
   );
-}
+};
 
 export default App;
