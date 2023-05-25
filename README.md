@@ -1,0 +1,25 @@
+- 「React.js 勉強会」使用プロジェクト
+  - 各々のプロジェクトは、基本的に、以下コマンドで作成しており、dockerを使用しない場合には、以下コマンドでサーバーを立ち上げることができる(「myapp」部分がプロジェクト名)。
+    - `npx create-react-app my-app`
+    - `npm install` (「`cd myapp`」 後に)
+    - `npm run start`
+      - 上記は、node.js(v18.13.0)、npm(v9.4.0)がローカルにインストールされている状態で成功することが確認できている。
+        - ローカルインストールに関しては、「[React.js勉強会資料](https://docs.google.com/presentation/d/1aaipbAdaS1ga9L95F-3KLSbKcHTlrF0f/edit?usp=sharing&ouid=108398918051945553684&rtpof=true&sd=true)」のスライド5枚目参考
+  - dockerを使用して、サーバーを立ち上げる場合
+    - (1) `cd docker`
+    - (2) `docker-compose up -d`
+      - 以下で、コンテナが無事立ち上がっているか確認。
+        - `docker ps`
+        - `docker logs -f react-todo-app`
+        - `docker logs -f react-hooks-todo-app`
+      - 以下で、docker-composeで作られた、コンテナ、イメージ、ボリューム、ネットワークそして未定義コンテナ、全てを一括消去できる。
+        - `docker-compose down --rmi all --volumes --remove-orphans` ([参考](https://qiita.com/suin/items/19d65e191b96a0079417))
+    - (3) 以下アドレスにアクセス。
+      - http://localhost:3001
+      - http://localhost:3002
+
+  - 以下、各プロジェクトについての概要
+    - (1) 「react-todo-app」:
+      - 簡易的なTODO管理プロジェクト。
+    - (2) 「react-hooks-todo-app」:
+      - React.jsのv16.8.0から導入されたHooks機能を使って状態管理をした、簡易的なTODO管理プロジェクト。
